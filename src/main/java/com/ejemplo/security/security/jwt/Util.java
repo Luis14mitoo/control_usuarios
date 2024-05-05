@@ -27,7 +27,7 @@ public class Util {
 	@Value("${jwt.secret.key}")
 	private String secretKey;
 	
-	@Value ("{jwt.time.expiration}")
+	@Value ("${jwt.time.expiration}")
 	private String timeExpiration;
 	
 	
@@ -92,18 +92,6 @@ public class Util {
 		byte[] keyBytes = Decoders.BASE64.decode(secretKey);
 		return Keys.hmacShaKeyFor(keyBytes);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

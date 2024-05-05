@@ -36,11 +36,11 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 									HttpServletResponse response, 
 									FilterChain filterChain)throws ServletException, IOException {
 		
-		String tokenHeader = request.getHeader("Autorizacion");
+		String tokenHeader = request.getHeader("Authorization");
 		
 		if(tokenHeader != null && tokenHeader.startsWith("Bearer ")) {
 			String token = tokenHeader.substring(7);
-			
+			System.out.println("Token  "+token);
 			if(util.isTokenValid(token)) {
 				String username = util.getUsernameFromToken(token);
 				UserDetails userDetails = uService.loadUserByUsername(username);
